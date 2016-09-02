@@ -1,0 +1,128 @@
+﻿{
+  "Exchanges": [
+    {
+      "Name": "Exchange_1",
+      "Type": "fanout",
+      "Durability": "Durable",
+      "AutoDelete": "No",
+      "Internal": "No",
+      "Arguments": [
+        {
+          "Name": "string-arg",
+          "Value": "someString",
+          "Type": "String"
+        },
+        {
+          "Name": "number-arg",
+          "Value": "4",
+          "Type": "Number"
+        },
+        {
+          "Name": "boolean-arg",
+          "Value": "True",
+          "Type": "Boolean"
+        },
+        {
+          "Name": "list-arg",
+          "Type": "List",
+          "ListArgumentItems": [
+            {
+              "Value": "string-value",
+              "Type": "String"
+            },
+            {
+              "Value": "3",
+              "Type": "Number"
+            },
+            {
+              "Value": "False",
+              "Type": "Boolean"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Queues": [
+    {
+      "Name": "Queue_1",
+      "Durability": "Durable",
+      "AutoDelete": "No",
+      "Arguments": [
+        {
+          "Name": "x-dead-letter-exchange",
+          "Value": "someValue_level_1",
+          "Type": "String"
+        },
+        {
+          "Name": "x-message-ttl",
+          "Value": "5000",
+          "Type": "Number"
+        },
+        {
+          "Name": "boolean-arg",
+          "Value": "True",
+          "Type": "Boolean"
+        },
+        {
+          "Name": "list-1",
+          "Type": "List",
+          "ListArgumentItems": [
+            {
+              "Value": "string-value",
+              "Type": "String"
+            },
+            {
+              "Value": "1",
+              "Type": "Number"
+            },
+            {
+              "Value": "True",
+              "Type": "Boolean"
+            }
+          ]
+        }
+      ],
+      "Bindings": [
+        {
+          "FromExchange": "Exchange_1",
+          "RoutingKey": "someKey",
+          "Arguments": [
+            {
+              "Name": "x-dead-letter-exchange",
+              "Value": "someValue_level_1",
+              "Type": "String"
+            },
+            {
+              "Name": "x-message-ttl",
+              "Value": "6000",
+              "Type": "Number"
+            },
+            {
+              "Name": "boolean-arg",
+              "Value": "True",
+              "Type": "Boolean"
+            },
+            {
+              "Name": "list-arg",
+              "ListArgumentItems": [
+                {
+                  "Value": "string-value",
+                  "Type": "String"
+                },
+                {
+                  "Value": "3",
+                  "Type": "Number"
+                },
+                {
+                  "Value": "False",
+                  "Type": "Boolean"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
