@@ -24,7 +24,7 @@ namespace RMQHello
             catch(TypeInitializationException ex)
             {
                 Log.Error("Initialization error (perhaps, you need to check app.config file)");
-                throw;
+                throw ex;
             }
             catch (Exception ex)
             {
